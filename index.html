@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAMAXYY STORE</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ANIMATION BACKGROUND */
+body:before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
+    background:linear-gradient(45deg,red,black,#111);
+    animation:move 8s infinite linear;
+    opacity:0.1;
+    z-index:-1;
+}
+
+@keyframes move{
+    0%{transform:translate(0,0);}
+    100%{transform:translate(-50%,-50%);}
+}
+
+/* LOGIN */
+#login{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.box{
+    width:90%;
+    max-width:350px;
+    background:#151515;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 20px red;
+    text-align:center;
+}
+
+input{
+    width:90%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:red;
+    border:none;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* MAIN */
+#main{
+    display:none;
+}
+
+/* NAVBAR */
+.nav{
+    display:flex;
+    justify-content:space-around;
+    background:#111;
+    padding:12px;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 0 10px red;
+}
+
+.nav button{
+    background:none;
+    border:none;
+    color:white;
+    font-size:14px;
+}
+
+/* SECTIONS */
+.section{
+    display:none;
+    padding:20px;
+}
+
+.active{
+    display:block;
+}
+
+/* CARDS */
+.card{
+    background:#151515;
+    margin:15px auto;
+    padding:20px;
+    width:90%;
+    max-width:400px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(255,0,0,0.4);
+    text-align:center;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    margin:10px 0;
+    padding:12px;
+    background:red;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+}
+
+/* FLOAT BUTTON */
+.float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:red;
+    padding:15px;
+    border-radius:50%;
+    box-shadow:0 0 10px red;
+}
+
+/* PRODUCT GRID */
+.grid{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* QR */
+.qr{
+    width:150px;
+    height:150px;
+    background:white;
+    margin:auto;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    color:gray;
+    font-size:12px;
+    margin:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+<div class="box">
+<h2 style="color:red;">TAMAXYY LOGIN</h2>
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">LOGIN</button>
+</div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<!-- NAV -->
+<div class="nav">
+<button onclick="show('home')">HOME</button>
+<button onclick="show('products')">PRODUCTS</button>
+<button onclick="show('apk')">APK</button>
+<button onclick="show('contact')">CONTACT</button>
+</div>
+
+<!-- HOME -->
+<div id="home" class="section active">
+<div class="card">
+<h2>🔥 TAMAXYY STORE</h2>
+<p>Fast | Secure | Instant Delivery</p>
+</div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products" class="section">
+<div class="card">
+<h3>PRODUCT 1</h3>
+<p>Premium Access</p>
+<a class="btn">BUY NOW</a>
+</div>
+
+<div class="card">
+<h3>PRODUCT 2</h3>
+<p>VIP Package</p>
+<a class="btn">BUY NOW</a>
+</div>
+</div>
+
+<!-- APK -->
+<div id="apk" class="section">
+<div class="card">
+<h2>APK DOWNLOAD</h2>
+<a class="btn">⬇ Download APK</a>
+<a class="btn">⬇ MOD MENU</a>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+
+<div class="card">
+<h2>CONTACT</h2>
+<p>📞 9703809374</p>
+</div>
+
+<div class="card">
+<h2>PAYMENT QR</h2>
+<div class="qr"></div>
+<p>Scan & Pay</p>
+</div>
+
+</div>
+
+<footer>© TAMAXYY STORE</footer>
+
+</div>
+
+<!-- FLOAT BUTTON -->
+<div class="float">💬</div>
+
+<script>
+function login(){
+    document.getElementById("login").style.display="none";
+    document.getElementById("main").style.display="block";
+}
+
+function show(id){
+    let sec=document.querySelectorAll(".section");
+    sec.forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
